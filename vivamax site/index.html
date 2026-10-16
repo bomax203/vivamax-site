@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VIVAMAX.BG — Монтаж на мебели и ВиК услуги в София</title>
+<title>VIVAMAX — Монтаж на мебели и ВиК услуги в София</title>
 <link rel="alternate" hreflang="bg" href="index.html">
 <link rel="alternate" hreflang="ru" href="ru.html">
 <link rel="alternate" hreflang="en" href="en.html">
@@ -454,6 +454,11 @@ footer{padding-block:36px}
 .svc-grid .svc{flex:0 1 calc((100% - 24px)/3);grid-column:auto!important}
 @media (max-width:960px){.svc-grid .svc{flex-basis:calc((100% - 12px)/2)}}
 @media (max-width:620px){.svc-grid{gap:8px}.svc-grid .svc{flex-basis:100%}}
+
+/* v14: logo without .BG, centered tagline */
+.logo{justify-items:center;text-align:center}
+.logo b{letter-spacing:.04em}
+.logo small{margin-top:6px}
 </style>
 </head>
 <body>
@@ -484,7 +489,7 @@ footer{padding-block:36px}
 
 <header class="top" id="top-bar">
   <div class="wrap">
-    <a class="logo" href="#home"><b>VIVAMAX<span>.BG</span></b><small>Мебели и ВиК</small></a>
+    <a class="logo" href="#home"><b>VIVAMAX</b><small>Мебели и ВиК</small></a>
     <nav class="nav" aria-label="Основно меню"><a href="#about">За нас</a><a href="#services">Услуги</a><a href="#videos">Видео</a><a href="#work">Проекти</a><a href="#prices">Цени</a><a href="#faq">Въпроси</a><a href="#contact">Контакти</a></nav>
     <nav class="langs" aria-label="Език"><a href="index.html" hreflang="bg" aria-current="true">BG</a><a href="ru.html" hreflang="ru">RU</a><a href="en.html" hreflang="en">EN</a></nav>
     <a class="btn btn--main" href="#contact">Запишете се</a>
@@ -548,7 +553,7 @@ footer{padding-block:36px}
     </div>
     <div class="rv">
       <h2 id="about-h">Здравейте, ние сме <span class="hand">VIVAMAX</span></h2>
-      <p class="t">VIVAMAX.BG монтира мебели и прави ВиК услуги в София: в апартаменти, къщи и офиси. Монтираме кухни и мебели от всеки магазин, обзавеждане за офиси, банки и магазини, монтираме врати, сменяме смесители, тоалетни и бойлери. Идваме с наши професионални инструменти, договаряме цената предварително и оставяме чисто след себе си.</p>
+      <p class="t">VIVAMAX монтира мебели и прави ВиК услуги в София: в апартаменти, къщи и офиси. Монтираме кухни и мебели от всеки магазин, обзавеждане за офиси, банки и магазини, монтираме врати, сменяме смесители, тоалетни и бойлери. Идваме с наши професионални инструменти, договаряме цената предварително и оставяме чисто след себе си.</p>
       <ul class="stdlist">
         <li>Цена, договорена предварително</li>
         <li>Идваме в уговорения час</li>
@@ -664,9 +669,9 @@ footer{padding-block:36px}
 
 <footer>
   <div class="wrap fmini">
-    <a class="logo" href="#home"><b>VIVAMAX<span>.BG</span></b><small>Мебели и ВиК</small></a>
+    <a class="logo" href="#home"><b>VIVAMAX</b><small>Мебели и ВиК</small></a>
     <div class="fphones"><a href="tel:+359879408162">+359 879 408 162</a><a href="tel:+359876521686">+359 876 521 686</a></div>
-    <p class="farea">© VIVAMAX.BG, София</p>
+    <p class="farea">© VIVAMAX, София</p>
   </div>
 </footer>
 
@@ -779,6 +784,15 @@ if('IntersectionObserver' in window&&!noMotion){const io=new IntersectionObserve
 // hide the mobile quick bar while the hero buttons are on screen
 {const d=document.querySelector('.dock'),c=document.querySelector('.hero .ctas');
  if(d&&c&&'IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>d.classList.toggle('away',e.isIntersecting)),{threshold:0}).observe(c)}}
+
+// logo: tagline as wide as the word VIVAMAX (keeps some letter-spacing; never smaller than ~8px)
+{const fit=()=>document.querySelectorAll('.logo').forEach(l=>{const b=l.querySelector('b'),s=l.querySelector('small');if(!b||!s||!b.offsetWidth)return;
+ s.style.letterSpacing='0px';s.style.fontSize='';s.style.marginRight='0px';
+ const W=b.getBoundingClientRect().width,n=s.textContent.trim().length;let fs=parseFloat(getComputedStyle(s).fontSize);
+ const minLs=.08,minFs=8.3;let w=s.getBoundingClientRect().width;
+ const need=w+(n-1)*minLs*fs;if(need>W){fs=Math.max(minFs,fs*W/need);s.style.fontSize=fs+'px';w=s.getBoundingClientRect().width}
+ const ls=Math.max(minLs*fs,(W-w)/(n-1));s.style.letterSpacing=ls+'px';s.style.marginRight=(-ls)+'px'});
+ fit();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fit);addEventListener('resize',fit,{passive:true})}
 </script>
 
 </body>
