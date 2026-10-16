@@ -459,6 +459,10 @@ footer{padding-block:36px}
 .logo{justify-items:center;text-align:center}
 .logo b{letter-spacing:.04em}
 .logo small{margin-top:6px}
+
+/* v15: QA fixes */
+html.lb-open{overflow:hidden}
+@media (max-width:380px){.pcall{padding:14px 12px}.pn{gap:6px}.pn>a{font-size:.95rem;gap:6px}.pn>a svg{width:15px;height:15px}.pn .acts{gap:5px}.pn .acts a{width:32px;height:32px}}
 </style>
 </head>
 <body>
@@ -793,6 +797,9 @@ if('IntersectionObserver' in window&&!noMotion){const io=new IntersectionObserve
  const need=w+(n-1)*minLs*fs;if(need>W){fs=Math.max(minFs,fs*W/need);s.style.fontSize=fs+'px';w=s.getBoundingClientRect().width}
  const ls=Math.max(minLs*fs,(W-w)/(n-1));s.style.letterSpacing=ls+'px';s.style.marginRight=(-ls)+'px'});
  fit();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fit);addEventListener('resize',fit,{passive:true})}
+
+// lock page scroll while the photo lightbox is open
+{const lb=document.getElementById('lb');if(lb)new MutationObserver(()=>document.documentElement.classList.toggle('lb-open',!lb.hidden)).observe(lb,{attributes:true,attributeFilter:['hidden']})}
 </script>
 
 </body>
