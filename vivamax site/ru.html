@@ -800,6 +800,13 @@ if('IntersectionObserver' in window&&!noMotion){const io=new IntersectionObserve
 
 // lock page scroll while the photo lightbox is open
 {const lb=document.getElementById('lb');if(lb)new MutationObserver(()=>document.documentElement.classList.toggle('lb-open',!lb.hidden)).observe(lb,{attributes:true,attributeFilter:['hidden']})}
+
+// in-page links: smooth scroll without adding #section to the address bar
+{const noMo=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const go=(id,smooth)=>{const t=document.getElementById(id);if(!t)return false;if(id==='home'){scrollTo({top:0,behavior:smooth&&!noMo?'smooth':'auto'});return true}t.scrollIntoView({behavior:smooth&&!noMo?'smooth':'auto',block:'start'});return true};
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented&&!a.closest('.svc,#mnav'))return;
+  const id=a.getAttribute('href').slice(1);if(!id)return;if(go(id,true)){e.preventDefault();if(location.hash)history.replaceState(null,'',location.pathname+location.search)}});
+ if(location.hash.length>1){const id=decodeURIComponent(location.hash.slice(1));history.replaceState(null,'',location.pathname+location.search);addEventListener('load',()=>go(id,false))}}
 </script>
 
 </body>
