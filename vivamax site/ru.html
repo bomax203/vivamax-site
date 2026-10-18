@@ -480,6 +480,12 @@ footer .tt{display:inline-flex;align-items:center;gap:8px;font:700 .95rem/1 var(
 footer .tt svg{width:18px;height:18px}
 .mnav-bot .tt-btn{justify-self:stretch;justify-content:center}
 .dock a.vb{flex:0 0 52px}
+
+/* v18: TikTok next to gallery heading */
+.work .head.split>p{display:grid;gap:14px;justify-items:start}
+.tt-dark{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font:700 .88rem/1 var(--f-display);transition:background .2s,border-color .2s}
+.tt-dark svg{width:18px;height:18px}
+.tt-dark:hover{background:rgba(255,255,255,.1);border-color:#fff}
 </style>
 </head>
 <body>
@@ -530,9 +536,10 @@ footer .tt svg{width:18px;height:18px}
   <img class="bgimg" src="img/hero.jpg" alt="" fetchpriority="high">
   <div class="wrap hgrid">
     <div>
-      <h1 id="h1">Сборка мебели и сантехника</h1>
+      <h1 id="h1"><span class="o">Сборка мебели</span> и <span class="o">сантехника</span></h1>
       <p class="lead">Кухни и мебель для дома, мебель для офисов и банков, установка дверей и сантехнические работы. Собираем мебель из любого магазина.</p>
       <ul class="checks">
+        <li>Работаем и с компаниями и офисами</li>
         <li>Бесплатная оценка по фото или на месте</li>
         <li>Фиксированная цена до начала работ</li>
         <li>Профессиональные инструменты и уборка после работы</li>
@@ -576,7 +583,7 @@ footer .tt svg{width:18px;height:18px}
       <p class="t">VIVAMAX собирает мебель и выполняет сантехнические работы в квартирах, домах и офисах. Собираем кухни и мебель из любого магазина, устанавливаем мебель для офисов, банков и магазинов, ставим двери, меняем смесители, унитазы и бойлеры. Приезжаем со своими профессиональными инструментами, согласуем цену заранее и оставляем после себя чистоту.</p>
       <ul class="stdlist">
         <li>Приезжаем в оговорённое время</li>
-        <li>Работаем и с компаниями и офисами</li>
+        <li>Работаем в квартирах и офисах</li>
         <li>Собираем с инструкцией или без</li>
         <li>Одна команда для мебели и сантехники</li>
       </ul>
@@ -605,7 +612,7 @@ footer .tt svg{width:18px;height:18px}
 <!-- PROJECTS -->
 <section class="work" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Фото с последних объектов</h2></div><p class="lead" style="max-width:26em">Реальные фото с наших объектов. Потяните ползунок, чтобы сравнить ванную до и после нашей работы.</p></div>
+    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Фото с последних объектов</h2></div><p class="lead" style="max-width:26em"><span>Реальные фото с наших объектов. Потяните ползунок, чтобы сравнить ванную до и после нашей работы.</span><a class="tt-dark" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Мы в TikTok</a></p></div>
     <div class="gallery" id="gallery">
       <div class="g wide tall ba" id="ba" style="--cut:50%">
         <img src="img/bath-before.jpg" alt="Ванная до: голый бетон и смонтированная инсталляция" loading="lazy">
@@ -664,7 +671,6 @@ footer .tt svg{width:18px;height:18px}
     <div class="side rv">
       <h2 id="ct-h">Запишитесь на осмотр</h2>
       <p class="lead">Позвоните или напишите в Viber. Фото задачи помогает назвать точную цену.</p>
-      <a class="tt-btn" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Мы в TikTok</a>
     </div>
     <div class="form rv">
       <form id="qform" novalidate>

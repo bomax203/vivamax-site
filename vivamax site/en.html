@@ -480,6 +480,12 @@ footer .tt{display:inline-flex;align-items:center;gap:8px;font:700 .95rem/1 var(
 footer .tt svg{width:18px;height:18px}
 .mnav-bot .tt-btn{justify-self:stretch;justify-content:center}
 .dock a.vb{flex:0 0 52px}
+
+/* v18: TikTok next to gallery heading */
+.work .head.split>p{display:grid;gap:14px;justify-items:start}
+.tt-dark{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font:700 .88rem/1 var(--f-display);transition:background .2s,border-color .2s}
+.tt-dark svg{width:18px;height:18px}
+.tt-dark:hover{background:rgba(255,255,255,.1);border-color:#fff}
 </style>
 </head>
 <body>
@@ -530,9 +536,10 @@ footer .tt svg{width:18px;height:18px}
   <img class="bgimg" src="img/hero.jpg" alt="" fetchpriority="high">
   <div class="wrap hgrid">
     <div>
-      <h1 id="h1">Furniture assembly and plumbing</h1>
+      <h1 id="h1"><span class="o">Furniture assembly</span> and <span class="o">plumbing</span></h1>
       <p class="lead">Kitchens and furniture for homes, fit-outs for offices and banks, door installation and plumbing. We assemble furniture from any store.</p>
       <ul class="checks">
+        <li>We also work with businesses and offices</li>
         <li>Free estimate from a photo or on site</li>
         <li>Fixed price agreed before we start</li>
         <li>Professional tools and clean-up after the work</li>
@@ -576,7 +583,7 @@ footer .tt svg{width:18px;height:18px}
       <p class="t">VIVAMAX installs furniture and does plumbing work in apartments, houses and offices. We install kitchens and furniture from any store, fit out offices, banks and shops, install doors and replace taps, toilets and water heaters. We come with our own professional tools, agree the price in advance and leave the place clean.</p>
       <ul class="stdlist">
         <li>We arrive at the agreed time</li>
-        <li>We also work with businesses and offices</li>
+        <li>We work in homes and offices</li>
         <li>Assembly with or without instructions</li>
         <li>One team for furniture and plumbing</li>
       </ul>
@@ -605,7 +612,7 @@ footer .tt svg{width:18px;height:18px}
 <!-- PROJECTS -->
 <section class="work" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Photos from recent jobs</h2></div><p class="lead" style="max-width:26em">Real photos from our jobs. Drag the slider to compare the bathroom before and after.</p></div>
+    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Photos from recent jobs</h2></div><p class="lead" style="max-width:26em"><span>Real photos from our jobs. Drag the slider to compare the bathroom before and after.</span><a class="tt-dark" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Follow us on TikTok</a></p></div>
     <div class="gallery" id="gallery">
       <div class="g wide tall ba" id="ba" style="--cut:50%">
         <img src="img/bath-before.jpg" alt="Bathroom before: bare concrete and a concealed toilet frame" loading="lazy">
@@ -664,7 +671,6 @@ footer .tt svg{width:18px;height:18px}
     <div class="side rv">
       <h2 id="ct-h">Book a site visit</h2>
       <p class="lead">Call us or write on Viber. A photo of the job helps us give an exact price.</p>
-      <a class="tt-btn" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Follow us on TikTok</a>
     </div>
     <div class="form rv">
       <form id="qform" novalidate>

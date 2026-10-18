@@ -480,6 +480,12 @@ footer .tt{display:inline-flex;align-items:center;gap:8px;font:700 .95rem/1 var(
 footer .tt svg{width:18px;height:18px}
 .mnav-bot .tt-btn{justify-self:stretch;justify-content:center}
 .dock a.vb{flex:0 0 52px}
+
+/* v18: TikTok next to gallery heading */
+.work .head.split>p{display:grid;gap:14px;justify-items:start}
+.tt-dark{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font:700 .88rem/1 var(--f-display);transition:background .2s,border-color .2s}
+.tt-dark svg{width:18px;height:18px}
+.tt-dark:hover{background:rgba(255,255,255,.1);border-color:#fff}
 </style>
 </head>
 <body>
@@ -530,9 +536,10 @@ footer .tt svg{width:18px;height:18px}
   <img class="bgimg" src="img/hero.jpg" alt="" fetchpriority="high">
   <div class="wrap hgrid">
     <div>
-      <h1 id="h1">Монтаж на мебели и ВиК</h1>
+      <h1 id="h1"><span class="o">Монтаж на мебели</span> и <span class="o">ВиК</span></h1>
       <p class="lead">Кухни и мебели за дома, обзавеждане за офиси и банки, монтаж на врати и ВиК услуги. Сглобяваме мебели от всеки магазин.</p>
       <ul class="checks">
+        <li>Работим и с фирми и офиси</li>
         <li>Безплатна оценка по снимка или на място</li>
         <li>Фиксирана цена преди започване</li>
         <li>Професионални инструменти и почистване след работа</li>
@@ -576,7 +583,7 @@ footer .tt svg{width:18px;height:18px}
       <p class="t">VIVAMAX монтира мебели и прави ВиК услуги в апартаменти, къщи и офиси. Монтираме кухни и мебели от всеки магазин, обзавеждане за офиси, банки и магазини, монтираме врати, сменяме смесители, тоалетни и бойлери. Идваме с наши професионални инструменти, договаряме цената предварително и оставяме чисто след себе си.</p>
       <ul class="stdlist">
         <li>Идваме в уговорения час</li>
-        <li>Работим и с фирми и офиси</li>
+        <li>Работим в домове и офиси</li>
         <li>Сглобяваме с или без инструкция</li>
         <li>Един екип за мебели и ВиК</li>
       </ul>
@@ -605,7 +612,7 @@ footer .tt svg{width:18px;height:18px}
 <!-- PROJECTS -->
 <section class="work" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Снимки от последните обекти</h2></div><p class="lead" style="max-width:26em">Реални снимки от наши обекти. Плъзнете, за да сравните банята преди и след нашата работа.</p></div>
+    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Снимки от последните обекти</h2></div><p class="lead" style="max-width:26em"><span>Реални снимки от наши обекти. Плъзнете, за да сравните банята преди и след нашата работа.</span><a class="tt-dark" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Последвайте ни в TikTok</a></p></div>
     <div class="gallery" id="gallery">
       <div class="g wide tall ba" id="ba" style="--cut:50%">
         <img src="img/bath-before.jpg" alt="Баня преди: голи бетонни стени и монтирана структура за вграждане" loading="lazy">
@@ -664,7 +671,6 @@ footer .tt svg{width:18px;height:18px}
     <div class="side rv">
       <h2 id="ct-h">Запишете се за оглед</h2>
       <p class="lead">Обадете се или пишете във Viber. Снимка на задачата ни помага да дадем точна цена.</p>
-      <a class="tt-btn" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Последвайте ни в TikTok</a>
     </div>
     <div class="form rv">
       <form id="qform" novalidate>
