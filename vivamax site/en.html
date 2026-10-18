@@ -557,6 +557,17 @@ footer .logo b .wm{height:20px}
 .logo b .wm{height:28px}
 footer .logo b .wm{height:26px}
 @media (max-width:620px){.logo b .wm{height:23px}}
+
+/* v41: cookie consent */
+.ck{position:fixed;left:16px;bottom:16px;z-index:95;max-width:400px;background:#14171C;color:#E6E8EC;border-radius:12px;padding:16px 16px 14px;box-shadow:0 16px 40px -12px rgba(0,0,0,.5);font-size:.9rem;line-height:1.45}
+.ck[hidden]{display:none}
+.ck p{margin:0 0 12px}
+.ck .b{display:flex;gap:8px}
+.ck button{flex:1;border:0;border-radius:8px;padding:10px 12px;font:700 .88rem/1 var(--f-display);cursor:pointer}
+.ck .y{background:var(--orange);color:#14171C}
+.ck .n{background:#2A2F37;color:#fff}
+.fck{background:none;border:0;padding:10px 0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;opacity:.8}
+@media (max-width:760px){.ck{left:10px;right:10px;max-width:none;bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
 </style>
 </head>
 <body>
@@ -768,6 +779,7 @@ footer .logo b .wm{height:26px}
     <a class="logo" href="#home"><b><svg class="wm" viewBox="0 0 749.7 100" role="img" aria-label="VIVAMAX"><path fill="currentColor" fill-rule="evenodd" d="M386.2,0.0 L386.0,100.0 L387.7,100.0 L409.1,100.0 L412.0,100.0 L413.0,46.5 L444.1,75.0 L476.1,46.5 L477.9,100.0 L534.0,100.0 L568.0,42.9 L601.0,100.0 L663.4,100.0 L688.7,72.3 L713.8,100.0 L749.7,100.0 L708.9,49.6 L748.2,0.0 L748.4,0.0 L714.0,0.0 L690.3,26.0 L687.2,24.6 L667.4,0.0 L633.3,0.0 L633.5,0.0 L669.9,49.7 L631.5,100.0 L628.2,93.3 L577.6,0.0 L560.7,0.0 L558.1,0.0 L504.8,100.0 L502.7,0.0 L477.6,0.0 L445.3,32.5 L412.5,0.0 L389.2,0.0Z M313.7,0.0 L303.8,17.6 L303.2,21.4 L351.1,100.0 L354.0,100.0 L383.2,100.0 L383.2,100.0 L324.3,0.0Z M166.3,0.0 L218.1,100.0 L222.1,100.0 L233.2,100.0 L236.2,100.0 L290.9,0.0 L289.2,0.0 L259.5,0.0 L230.9,51.1 L228.2,53.0 L198.5,0.0 L173.0,0.0Z M134.9,0.0 L133.0,0.0 L133.0,100.0 L135.0,100.0 L158.1,100.0 L160.2,100.0 L160.2,0.0 L157.8,0.0Z M0.2,0.0 L0.0,0.0 L54.2,100.0 L57.6,100.0 L70.6,100.0 L73.2,100.0 L128.2,0.0 L126.8,0.0 L95.9,0.0 L66.5,52.5 L63.8,54.5 L32.1,0.0Z"/><path fill="#F38409" d="M568.9,61.9 L566.7,62.4 L548.9,94.0 L547.9,100.0 L587.2,100.0 L583.9,89.2Z M296.2,34.5 L293.7,35.4 L263.8,87.0 L258.8,100.0 L259.7,100.0 L319.7,100.0 L322.2,100.0 L323.8,85.5 L322.9,79.5 L301.0,78.1 L310.9,57.1Z"/></svg></b></a>
     <div class="fphones"><a href="tel:+359879408162">+359 879 408 162</a><a href="tel:+359876521686">+359 876 521 686</a></div>
     <a class="tt" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a>
+    <button type="button" class="fck" id="ck-open">Cookies</button>
     <p class="farea">© VIVAMAX, Sofia</p>
   </div>
 </footer>
@@ -870,6 +882,7 @@ const T_MSG={hi:'Hello!',me:'My name is',need:'I am interested in',from:'(reques
 function buildMsg(name,svc,note){return [T_MSG.hi,name?`${T_MSG.me} ${name}.`:'',`${T_MSG.need}: ${svc}.`,note||'',T_MSG.from].filter(Boolean).join('\n')}
 function openChat(ch,text){
   const t=encodeURIComponent(text);
+  if(window.vmTrack)vmTrack('generate_lead',{method:'viber_form',page_language:document.documentElement.lang});
   location.href=`viber://chat?number=%2B${WA}&draft=${t}`;
 }
 function wire(form,svcEl,nameEl,noteEl,after){
@@ -907,5 +920,24 @@ if('IntersectionObserver' in window&&!noMotion){const io=new IntersectionObserve
  if(location.hash.length>1){const id=decodeURIComponent(location.hash.slice(1));history.replaceState(null,'',location.pathname+location.search);let moved=false;['wheel','touchstart','keydown','mousedown'].forEach(ev=>addEventListener(ev,()=>moved=true,{once:true,passive:true}));const again=()=>{if(!moved)go(id,false)};const land=()=>{go(id,false);setTimeout(again,350);setTimeout(again,1200)};if(document.readyState==='complete')land();else addEventListener('load',land)}}
 </script>
 
+<div class="ck" id="ck" role="dialog" aria-label="Cookie consent" hidden><p>We use cookies (Google Analytics) to understand how the site is used. Do you agree?</p><div class="b"><button type="button" class="n" id="ck-no">Decline</button><button type="button" class="y" id="ck-yes">Accept</button></div></div>
+<script>
+// Google Analytics 4: loads only after the visitor accepts cookies
+(function(){
+ var ID='G-PH3HGZ6BVK',K='vm_consent',box=document.getElementById('ck'),loaded=false;
+ window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+ function get(){try{return localStorage.getItem(K)}catch(e){return null}}
+ function put(v){try{localStorage.setItem(K,v)}catch(e){}}
+ function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);gtag('js',new Date());gtag('config',ID)}
+ window.vmTrack=function(name,params){if(loaded)gtag('event',name,params||{})};
+ var c=get();if(c==='yes')load();else if(c!=='no')box.hidden=false;
+ document.getElementById('ck-yes').onclick=function(){put('yes');box.hidden=true;load()};
+ document.getElementById('ck-no').onclick=function(){put('no');box.hidden=true};
+ document.getElementById('ck-open').onclick=function(){box.hidden=false};
+ // clicks on phone / Viber links
+ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="viber:"]');if(!a)return;
+  var tel=a.getAttribute('href').indexOf('tel:')===0;vmTrack(tel?'phone_click':'viber_click',{link_url:a.getAttribute('href'),page_language:document.documentElement.lang})},true);
+})();
+</script>
 </body>
 </html>
