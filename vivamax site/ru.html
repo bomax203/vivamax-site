@@ -498,6 +498,12 @@ footer .tt svg{width:18px;height:18px}
 .htt{width:44px;height:44px;border-radius:8px}
 .htt svg{width:26px;height:26px;filter:drop-shadow(-1.5px -1px 0 #25F4EE) drop-shadow(1.5px 1px 0 #FE2C55)}
 @media (max-width:640px){.htt{width:44px;height:44px;border-radius:8px}}
+
+/* v21: TikTok in videos section */
+.vids-sec .head.split>p{display:grid;gap:14px;justify-items:start}
+.tt-light{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;background:#0E1014;color:#fff;text-decoration:none;font:700 .88rem/1 var(--f-display);transition:background .2s,transform .2s}
+.tt-light svg{width:18px;height:18px}
+.tt-light:hover{background:#000;transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -614,7 +620,7 @@ footer .tt svg{width:18px;height:18px}
 <!-- VIDEOS -->
 <section class="vids-sec" id="videos" aria-labelledby="vid-h">
   <div class="wrap">
-    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="vid-h">Несколько видео с объектов</h2></div><p class="lead" style="max-width:26em">Короткие видео с готовых объектов. Нажмите, чтобы включить.</p></div>
+    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="vid-h">Несколько видео с объектов</h2></div><p class="lead" style="max-width:26em"><span>Короткие видео с готовых объектов. Нажмите, чтобы включить.</span><a class="tt-light" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Больше видео в TikTok →</a></p></div>
     <div class="vids" id="vids"></div>
     <div class="vnav" aria-hidden="false"><span class="vcount" id="vcount">1 / 5</span><div class="vdots" id="vdots"></div><div class="varrows"><button type="button" id="vprev" aria-label="Предыдущее видео">&lsaquo;</button><button type="button" id="vnext" aria-label="Следующее видео">&rsaquo;</button></div></div>
   </div>
@@ -623,7 +629,7 @@ footer .tt svg{width:18px;height:18px}
 <!-- PROJECTS -->
 <section class="work" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Фото с последних объектов</h2></div><p class="lead" style="max-width:26em"><span>Реальные фото с наших объектов. Потяните ползунок, чтобы сравнить ванную до и после нашей работы.</span><a class="tt-dark" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Мы в TikTok</a></p></div>
+    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="work-h">Фото с последних объектов</h2></div><p class="lead" style="max-width:26em">Реальные фото с наших объектов. Потяните ползунок, чтобы сравнить ванную до и после нашей работы.</p></div>
     <div class="gallery" id="gallery">
       <div class="g wide tall ba" id="ba" style="--cut:50%">
         <img src="img/bath-before.jpg" alt="Ванная до: голый бетон и смонтированная инсталляция" loading="lazy">
