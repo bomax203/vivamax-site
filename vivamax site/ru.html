@@ -799,9 +799,16 @@ $('#gallery').insertAdjacentHTML('beforeend',items.map((it,i)=>it[0]==='img'
 $('#gallery').addEventListener('click',e=>{
   const p=e.target.closest('.play');if(p){const g=p.closest('[data-vid]');const v=g.querySelector('video');v.play().catch(()=>{});g.classList.add('playing');return}
   const v=e.target.closest('[data-vid].playing video');if(v){v.paused?v.play():v.pause();return}
-  const b=e.target.closest('button.g');if(b){$('#lb-img').src=b.dataset.src;$('#lb-img').alt=b.dataset.cap;$('#lb-cap').textContent=b.dataset.cap;$('#lb').hidden=false;$('#lb-x').focus()}
+  const b=e.target.closest('button.g');if(b){$('#lb-img').src=b.dataset.src;$('#lb-img').alt=b.dataset.cap;$('#lb-cap').textContent=b.dataset.cap;openLb()}
 });
-const lb=$('#lb');$('#lb-x').addEventListener('click',()=>lb.hidden=true);lb.addEventListener('click',e=>{if(e.target===lb)lb.hidden=true});addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true});
+const lb=$('#lb');
+// lightbox: keep the scroll position, and let the phone's Back button close the photo instead of leaving the page
+let lbY=0,lbPushed=false;
+function openLb(){lbY=scrollY;lb.hidden=false;try{history.pushState({lb:1},'');lbPushed=true}catch(_){lbPushed=false}$('#lb-x').focus({preventScroll:true})}
+function shutLb(){if(lb.hidden)return;lb.hidden=true;document.documentElement.classList.remove('lb-open');if(Math.abs(scrollY-lbY)>1)scrollTo({top:lbY,behavior:'instant'})}
+function closeLb(){if(lb.hidden)return;if(lbPushed){lbPushed=false;history.back()}else shutLb()}
+addEventListener('popstate',()=>{lbPushed=false;shutLb()});
+$('#lb-x').addEventListener('click',closeLb);lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
 $('#ba-range').addEventListener('input',e=>$('#ba').style.setProperty('--cut',e.target.value+'%'));
 
 
