@@ -486,6 +486,13 @@ footer .tt svg{width:18px;height:18px}
 .tt-dark{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font:700 .88rem/1 var(--f-display);transition:background .2s,border-color .2s}
 .tt-dark svg{width:18px;height:18px}
 .tt-dark:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* v19: TikTok icon in white header */
+.htt{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#0E1014;color:#fff;text-decoration:none;transition:transform .2s,background .2s}
+.htt svg{width:18px;height:18px}
+.htt:hover{background:#000;transform:translateY(-1px)}
+@media (max-width:1060px){.htt{margin-left:auto}.top .langs{margin-left:0}}
+@media (max-width:640px){.htt{margin-left:auto;width:44px;height:44px;border-radius:6px}.hcall{margin-left:0}}
 </style>
 </head>
 <body>
@@ -509,9 +516,8 @@ footer .tt svg{width:18px;height:18px}
 
 <div class="infobar">
   <div class="wrap">
-    <span><svg><use href="#i-pin"/></svg>София и до 50 км около нея</span>
     <span class="hide-m"><svg><use href="#i-check"/></svg>Безплатен оглед и оферта</span>
-    <div class="r"><a class="tt" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a><a href="tel:+359879408162">+359 879 408 162</a><a class="hide-m" href="tel:+359876521686">+359 876 521 686</a></div>
+    <div class="r"><a href="tel:+359879408162">+359 879 408 162</a><a class="hide-m" href="tel:+359876521686">+359 876 521 686</a></div>
   </div>
 </div>
 
@@ -519,6 +525,7 @@ footer .tt svg{width:18px;height:18px}
   <div class="wrap">
     <a class="logo" href="#home"><b>VIVAMAX</b><small>Мебели и ВиК</small></a>
     <nav class="nav" aria-label="Основно меню"><a href="#about">За нас</a><a href="#services">Услуги</a><a href="#videos">Видео</a><a href="#work">Проекти</a><a href="#prices">Цени</a><a href="#faq">Въпроси</a><a href="#contact">Контакти</a></nav>
+    <a class="htt" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener" aria-label="Последвайте ни в TikTok" title="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
     <nav class="langs" aria-label="Език"><a href="index.html" hreflang="bg" aria-current="true">BG</a><a href="ru.html" hreflang="ru">RU</a><a href="en.html" hreflang="en">EN</a></nav>
     <a class="btn btn--main" href="#contact">Запишете се</a>
     <a class="hcall" href="tel:+359879408162" aria-label="Обадете се: +359 879 408 162"><svg><use href="#i-phone"/></svg></a>
