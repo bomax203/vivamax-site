@@ -514,6 +514,14 @@ footer .tt svg{width:18px;height:18px}
  .infobar .tt{gap:5px;font-weight:700}
  .infobar .tt svg{width:12px;height:12px}
 }
+
+/* v23: black bar stays on scroll; header never wraps */
+.infobar{position:sticky;top:0;z-index:51}
+.top{top:40px}
+section[id],#home{scroll-margin-top:122px}
+@media (max-width:560px){.top{top:30px}section[id],#home{scroll-margin-top:100px}.mnav{max-height:calc(100vh - 94px)}}
+.nav a,.top .btn,.langs a{white-space:nowrap}
+@media (max-width:1440px) and (min-width:1061px){.top .wrap{gap:18px}.nav{gap:16px}.nav a{font-size:.74rem}.top .btn{padding:14px 16px}}
 </style>
 </head>
 <body>
@@ -630,7 +638,7 @@ footer .tt svg{width:18px;height:18px}
 <!-- VIDEOS -->
 <section class="vids-sec" id="videos" aria-labelledby="vid-h">
   <div class="wrap">
-    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="vid-h">A few videos from our jobs</h2></div><p class="lead" style="max-width:26em"><span>Short videos from finished jobs. Tap to play.</span><a class="tt-light" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>More videos on TikTok →</a></p></div>
+    <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="vid-h">A few videos from our jobs</h2></div><p class="lead" style="max-width:26em"><a class="tt-light" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>More videos on TikTok</a></p></div>
     <div class="vids" id="vids"></div>
     <div class="vnav" aria-hidden="false"><span class="vcount" id="vcount">1 / 5</span><div class="vdots" id="vdots"></div><div class="varrows"><button type="button" id="vprev" aria-label="Previous video">&lsaquo;</button><button type="button" id="vnext" aria-label="Next video">&rsaquo;</button></div></div>
   </div>
