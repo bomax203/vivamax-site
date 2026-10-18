@@ -884,10 +884,10 @@ if('IntersectionObserver' in window&&!noMotion){const io=new IntersectionObserve
 
 // in-page links: smooth scroll without adding #section to the address bar
 {const noMo=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const go=(id,smooth)=>{const t=document.getElementById(id);if(!t)return false;if(id==='home'){scrollTo({top:0,behavior:smooth&&!noMo?'smooth':'auto'});return true}t.scrollIntoView({behavior:smooth&&!noMo?'smooth':'auto',block:'start'});return true};
+ const go=(id,smooth)=>{const t=document.getElementById(id);if(!t)return false;if(id==='home'){scrollTo({top:0,behavior:smooth&&!noMo?'smooth':'instant'});return true}t.scrollIntoView({behavior:smooth&&!noMo?'smooth':'instant',block:'start'});return true};
  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented&&!a.closest('.svc,#mnav'))return;
   const id=a.getAttribute('href').slice(1);if(!id)return;if(go(id,true)){e.preventDefault();if(location.hash)history.replaceState(null,'',location.pathname+location.search)}});
- if(location.hash.length>1){const id=decodeURIComponent(location.hash.slice(1));history.replaceState(null,'',location.pathname+location.search);addEventListener('load',()=>go(id,false))}}
+ if(location.hash.length>1){const id=decodeURIComponent(location.hash.slice(1));history.replaceState(null,'',location.pathname+location.search);let moved=false;['wheel','touchstart','keydown','mousedown'].forEach(ev=>addEventListener(ev,()=>moved=true,{once:true,passive:true}));const again=()=>{if(!moved)go(id,false)};const land=()=>{go(id,false);setTimeout(again,350);setTimeout(again,1200)};if(document.readyState==='complete')land();else addEventListener('load',land)}}
 </script>
 
 </body>
