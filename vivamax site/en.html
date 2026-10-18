@@ -468,6 +468,18 @@ html.lb-open{overflow:hidden}
 .city{min-height:210px;padding:20px}
 .cov-map,.cov-map iframe{min-height:210px}
 @media (max-width:760px){.city{min-height:200px}.cov-map,.cov-map iframe{min-height:200px}}
+
+/* v17: no WhatsApp, TikTok links */
+.chans{grid-template-columns:1fr!important}
+.tt-btn{display:inline-flex;align-items:center;gap:10px;align-self:center;justify-self:center;padding:12px 18px;border-radius:999px;background:#0E1014;color:#fff;text-decoration:none;font:700 .9rem/1 var(--f-display)}
+.tt-btn svg{width:18px;height:18px}
+.tt-btn:hover{background:#000}
+.infobar .tt{display:inline-flex;align-items:center;gap:6px}
+.infobar .tt svg{width:14px;height:14px;color:#fff}
+footer .tt{display:inline-flex;align-items:center;gap:8px;font:700 .95rem/1 var(--f-display);color:#fff;padding:10px 0}
+footer .tt svg{width:18px;height:18px}
+.mnav-bot .tt-btn{justify-self:stretch;justify-content:center}
+.dock a.vb{flex:0 0 52px}
 </style>
 </head>
 <body>
@@ -475,6 +487,7 @@ html.lb-open{overflow:hidden}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></g></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3h3c.2 1.9 1.4 3.3 3.5 3.6v3c-1.4 0-2.6-.4-3.5-1v6.1A5.7 5.7 0 1 1 11.3 9v3.1a2.7 2.7 0 1 0 2.7 2.7z"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2-5.2A8.5 8.5 0 1 1 21 11.5z"/></symbol>
   <symbol id="i-send" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M22 3L2 11l7 2 2 7 4-5 5 4z"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
@@ -492,7 +505,7 @@ html.lb-open{overflow:hidden}
   <div class="wrap">
     <span><svg><use href="#i-pin"/></svg>Sofia and up to 50 km around</span>
     <span class="hide-m"><svg><use href="#i-check"/></svg>Free visit and quote</span>
-    <div class="r"><a href="tel:+359879408162">+359 879 408 162</a><a class="hide-m" href="tel:+359876521686">+359 876 521 686</a></div>
+    <div class="r"><a class="tt" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a><a href="tel:+359879408162">+359 879 408 162</a><a class="hide-m" href="tel:+359876521686">+359 876 521 686</a></div>
   </div>
 </div>
 
@@ -507,7 +520,7 @@ html.lb-open{overflow:hidden}
   </div>
   <div class="mnav" id="mnav" hidden>
     <nav aria-label="Mobile menu"><a href="#about">About</a><a href="#services">Services</a><a href="#videos">Video</a><a href="#work">Projects</a><a href="#prices">Prices</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
-    <div class="mnav-bot"><nav class="langs langs-m" aria-label="Language"><a href="index.html" hreflang="bg">BG</a><a href="ru.html" hreflang="ru">RU</a><a href="en.html" hreflang="en" aria-current="true">EN</a></nav></div>
+    <div class="mnav-bot"><a class="tt-btn" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Follow us on TikTok</a><nav class="langs langs-m" aria-label="Language"><a href="index.html" hreflang="bg">BG</a><a href="ru.html" hreflang="ru">RU</a><a href="en.html" hreflang="en" aria-current="true">EN</a></nav></div>
   </div>
 </header>
 
@@ -517,8 +530,7 @@ html.lb-open{overflow:hidden}
   <img class="bgimg" src="img/hero.jpg" alt="" fetchpriority="high">
   <div class="wrap hgrid">
     <div>
-      <span class="chip">We also work with businesses</span>
-      <h1 id="h1">Furniture assembly and plumbing <span class="o">in Sofia</span></h1>
+      <h1 id="h1">Furniture assembly and plumbing</h1>
       <p class="lead">Kitchens and furniture for homes, fit-outs for offices and banks, door installation and plumbing. We assemble furniture from any store.</p>
       <ul class="checks">
         <li>Free estimate from a photo or on site</li>
@@ -529,11 +541,11 @@ html.lb-open{overflow:hidden}
     </div>
     <div class="qcard" id="callback">
       <h2>Let's talk about your project</h2>
-      <p class="s">Pick the service and send your request via WhatsApp or Viber. The consultation is free.</p>
+      <p class="s">Pick the service and send your request via Viber. The consultation is free.</p>
       <form id="cbform" novalidate>
         <div class="field"><label for="cb-svc">What do you need?</label><select id="cb-svc"></select></div>
         <div class="field"><label for="cb-name">Name (optional)</label><input id="cb-name" type="text" autocomplete="name" placeholder="Maria"></div>
-        <div class="chans"><button class="btn ch-wa" type="submit" data-ch="wa"><svg><use href="#i-chat"/></svg>WhatsApp</button><button class="btn ch-vb" type="submit" data-ch="vb"><svg><use href="#i-chat"/></svg>Viber</button></div>
+        <div class="chans"><button class="btn ch-vb" type="submit" data-ch="vb"><svg><use href="#i-chat"/></svg>Viber</button></div>
         <p class="fine">A chat opens with a ready message. Just tap Send.</p>
       </form>
     </div>
@@ -547,7 +559,7 @@ html.lb-open{overflow:hidden}
       <div class="fact"><div class="ic"><svg><use href="#i-tools"/></svg></div><div><b>Kitchens and furniture</b><span>For homes, from any store</span></div></div>
       <div class="fact"><div class="ic"><svg><use href="#i-tag"/></svg></div><div><b>Offices and banks</b><span>Business fit-outs</span></div></div>
       <div class="fact"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><b>Sofia and the region</b><span>Up to 50 km around the city</span></div></div>
-      <div class="fact"><div class="ic"><svg><use href="#i-chat"/></svg></div><div><b>Easy to reach</b><span>Phone, WhatsApp, Viber</span></div></div>
+      <div class="fact"><div class="ic"><svg><use href="#i-chat"/></svg></div><div><b>Easy to reach</b><span>Phone and Viber</span></div></div>
     </div>
   </div>
 </div>
@@ -561,10 +573,10 @@ html.lb-open{overflow:hidden}
     </div>
     <div class="rv">
       <h2 id="about-h">Hi, we're <span class="hand">VIVAMAX</span></h2>
-      <p class="t">VIVAMAX installs furniture and does plumbing work in Sofia: in apartments, houses and offices. We install kitchens and furniture from any store, fit out offices, banks and shops, install doors and replace taps, toilets and water heaters. We come with our own professional tools, agree the price in advance and leave the place clean.</p>
+      <p class="t">VIVAMAX installs furniture and does plumbing work in apartments, houses and offices. We install kitchens and furniture from any store, fit out offices, banks and shops, install doors and replace taps, toilets and water heaters. We come with our own professional tools, agree the price in advance and leave the place clean.</p>
       <ul class="stdlist">
         <li>We arrive at the agreed time</li>
-        <li>We work in homes and offices</li>
+        <li>We also work with businesses and offices</li>
         <li>Assembly with or without instructions</li>
         <li>One team for furniture and plumbing</li>
       </ul>
@@ -610,7 +622,7 @@ html.lb-open{overflow:hidden}
   <div class="wrap">
     <div class="head split rv"><div style="display:grid;gap:14px"><h2 id="pr-h">What it costs</h2></div><p class="lead" style="max-width:26em">The exact price comes after a free visit or from a photo.</p></div>
     <div class="pgrid rv" id="plist"></div>
-    <div class="pcall rv"><span class="lbl">Consultation and site visit <b>Free</b></span><div class="nums"><div class="pn"><a href="tel:+359879408162" aria-label="Call: +359 879 408 162"><svg aria-hidden="true"><use href="#i-phone"/></svg>+359 879 408 162</a><span class="acts"><a class="wa" href="https://wa.me/359879408162" target="_blank" rel="noopener" aria-label="WhatsApp +359 879 408 162" title="WhatsApp"><svg aria-hidden="true"><use href="#i-chat"/></svg></a><a class="vb" href="viber://chat?number=%2B359879408162" aria-label="Viber +359 879 408 162" title="Viber"><svg aria-hidden="true"><use href="#i-chat"/></svg></a></span></div><div class="pn"><a href="tel:+359876521686" aria-label="Call: +359 876 521 686"><svg aria-hidden="true"><use href="#i-phone"/></svg>+359 876 521 686</a><span class="acts"><a class="wa" href="https://wa.me/359876521686" target="_blank" rel="noopener" aria-label="WhatsApp +359 876 521 686" title="WhatsApp"><svg aria-hidden="true"><use href="#i-chat"/></svg></a><a class="vb" href="viber://chat?number=%2B359876521686" aria-label="Viber +359 876 521 686" title="Viber"><svg aria-hidden="true"><use href="#i-chat"/></svg></a></span></div></div></div>
+    <div class="pcall rv"><span class="lbl">Consultation and site visit <b>Free</b></span><div class="nums"><div class="pn"><a href="tel:+359879408162" aria-label="Call: +359 879 408 162"><svg aria-hidden="true"><use href="#i-phone"/></svg>+359 879 408 162</a><span class="acts"><a class="vb" href="viber://chat?number=%2B359879408162" aria-label="Viber +359 879 408 162" title="Viber"><svg aria-hidden="true"><use href="#i-chat"/></svg></a></span></div><div class="pn"><a href="tel:+359876521686" aria-label="Call: +359 876 521 686"><svg aria-hidden="true"><use href="#i-phone"/></svg>+359 876 521 686</a><span class="acts"><a class="vb" href="viber://chat?number=%2B359876521686" aria-label="Viber +359 876 521 686" title="Viber"><svg aria-hidden="true"><use href="#i-chat"/></svg></a></span></div></div></div>
     <p class="pdemo">Sample prices for the demo, to be confirmed. Several jobs in one visit get one combined price.</p>
   </div>
 </section>
@@ -619,7 +631,7 @@ html.lb-open{overflow:hidden}
 <section class="steps-sec" aria-labelledby="st-h">
   <div class="wrap">
     <div class="head rv"><h2 id="st-h">How we work</h2></div>
-    <ol class="tl"><li class="rv"><h3>Call or send a photo</h3><p>By phone, WhatsApp, Viber or the form.</p></li><li class="rv"><h3>Free estimate</h3><p>We give you a fixed price and a date.</p></li><li class="rv"><h3>We do the work</h3><p>We arrive on time with everything needed.</p></li><li class="rv"><h3>Handover</h3><p>We check it with you, clean up and take the rubbish away.</p></li></ol>
+    <ol class="tl"><li class="rv"><h3>Call or send a photo</h3><p>By phone, Viber or the form.</p></li><li class="rv"><h3>Free estimate</h3><p>We give you a fixed price and a date.</p></li><li class="rv"><h3>We do the work</h3><p>We arrive on time with everything needed.</p></li><li class="rv"><h3>Handover</h3><p>We check it with you, clean up and take the rubbish away.</p></li></ol>
   </div>
 </section>
 
@@ -651,7 +663,8 @@ html.lb-open{overflow:hidden}
   <div class="wrap contact">
     <div class="side rv">
       <h2 id="ct-h">Book a site visit</h2>
-      <p class="lead">Call us or write on WhatsApp or Viber. A photo of the job helps us give an exact price.</p>
+      <p class="lead">Call us or write on Viber. A photo of the job helps us give an exact price.</p>
+      <a class="tt-btn" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>Follow us on TikTok</a>
     </div>
     <div class="form rv">
       <form id="qform" novalidate>
@@ -660,7 +673,7 @@ html.lb-open{overflow:hidden}
           <div class="field full"><label for="q-name">Name (optional)</label><input id="q-name" type="text" autocomplete="name" placeholder="Maria"></div>
           <div class="field full"><label for="q-note">Short description (optional)</label><textarea id="q-note" placeholder="e.g. replace a toilet and a tap, 2nd floor, Sofia"></textarea></div>
         </div>
-        <div class="chans"><button class="btn ch-wa" type="submit" data-ch="wa"><svg><use href="#i-chat"/></svg>WhatsApp</button><button class="btn ch-vb" type="submit" data-ch="vb"><svg><use href="#i-chat"/></svg>Viber</button></div>
+        <div class="chans"><button class="btn ch-vb" type="submit" data-ch="vb"><svg><use href="#i-chat"/></svg>Viber</button></div>
         <p class="fine">A chat opens with a ready message. You can add a photo of the job right in the chat.</p>
       </form>
       <div class="done" id="qdone" hidden role="status">
@@ -679,13 +692,13 @@ html.lb-open{overflow:hidden}
   <div class="wrap fmini">
     <a class="logo" href="#home"><b>VIVAMAX</b><small>Furniture and plumbing</small></a>
     <div class="fphones"><a href="tel:+359879408162">+359 879 408 162</a><a href="tel:+359876521686">+359 876 521 686</a></div>
+    <a class="tt" href="https://www.tiktok.com/@vivamax.bg" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a>
     <p class="farea">© VIVAMAX, Sofia</p>
   </div>
 </footer>
 
 <nav class="dock" aria-label="Quick contact">
   <a class="tel" href="tel:+359879408162" aria-label="Call: +359 879 408 162"><svg><use href="#i-phone"/></svg></a>
-  <a class="wa" href="https://wa.me/359879408162" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-chat"/></svg></a>
   <a class="vb" href="viber://chat?number=%2B359879408162" aria-label="Viber"><svg><use href="#i-chat"/></svg></a>
   <a class="q" href="#contact">Book a visit</a>
 </nav>
@@ -775,11 +788,10 @@ const T_MSG={hi:'Hello!',me:'My name is',need:'I am interested in',from:'(reques
 function buildMsg(name,svc,note){return [T_MSG.hi,name?`${T_MSG.me} ${name}.`:'',`${T_MSG.need}: ${svc}.`,note||'',T_MSG.from].filter(Boolean).join('\n')}
 function openChat(ch,text){
   const t=encodeURIComponent(text);
-  const url=ch==='wa'?`https://wa.me/${WA}?text=${t}`:`viber://chat?number=%2B${WA}&draft=${t}`;
-  if(ch==='wa')window.open(url,'_blank','noopener');else location.href=url;
+  location.href=`viber://chat?number=%2B${WA}&draft=${t}`;
 }
 function wire(form,svcEl,nameEl,noteEl,after){
-  form.addEventListener('submit',e=>{e.preventDefault();const ch=(e.submitter&&e.submitter.dataset.ch)||'wa';
+  form.addEventListener('submit',e=>{e.preventDefault();const ch=(e.submitter&&e.submitter.dataset.ch)||'vb';
     openChat(ch,buildMsg(nameEl.value.trim(),svcEl.value,noteEl?noteEl.value.trim():''));after&&after()})}
 wire($('#cbform'),$('#cb-svc'),$('#cb-name'),null,()=>toast('The chat is open. Tap Send there.'));
 wire($('#qform'),$('#q-svc'),$('#q-name'),$('#q-note'),()=>{$('#qform').hidden=true;$('#qdone').hidden=false});
